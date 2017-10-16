@@ -1,13 +1,17 @@
 import React from 'react';
+import moment from 'moment';
+//css
+import './css/RedditPost.css';
 
-const style = {display: 'flex', flexDirection: 'column', marginBottom: 30}
+export default (props) => {
+  console.log(props);
+  return <div className="redditPostContainer">
+    <a href="http://google.com"> { props.title } </a>
 
-export default () => {
-  return <div style={style}>
-    <a href="http://google.com"> Nala mi je pojela gace </a>
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <p style={{marginRight: 30}}>220 Comments</p>
-      <p>Submitted 10 min ago</p>
+    <div className="redditPostBottomContainer">
+      <p className="comment">{ props.comment } Comments</p>
+      <p>Submitted {moment(props.submitted).fromNow()}</p>
     </div>
+
   </div>
 }
